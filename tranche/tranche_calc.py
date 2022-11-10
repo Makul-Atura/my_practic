@@ -1,9 +1,9 @@
 import datetime
-import change
+import my_datetime
 
 
 def get_days_amount_1(date_1, date_2, date_3, date_4):
-    year_days =1
+    year_days = my_datetime.calc_year_days(date_1, date_2)
     days_of_1_per = (date_2 - date_1).days
     days_of_2_per = (date_4 - date_3).days
 
@@ -38,15 +38,15 @@ k_amount = int(input('Введите кол-во периодов: '))
 
 if k_amount == 2:
     receipt_date = input('Введите дату поступления на счет (дд.мм.гггг): ')
-    receipt_date = change.get_correct_date_format(receipt_date)
+    receipt_date = my_datetime.get_correct_date(receipt_date)
     end_date_1 = input(f'Введите дату окончания 1-го перода ('
                  f'дд.мм.гггг): ')
-    end_date_1 = change.get_correct_date_format(end_date_1)
+    end_date_1 = my_datetime.get_correct_date(end_date_1)
     end_date_2 = input(f'Введите дату начала 2-го периода ('
                  f'дд.мм.гггг): ')
-    end_date_2 = change.get_correct_date_format(end_date_2)
+    end_date_2 = my_datetime.get_correct_date(end_date_2)
     return_date = input('Введите дату возврата (дд.мм.гггг): ')
-    return_date = change.get_correct_date_format(return_date)
+    return_date = my_datetime.get_correct_date(return_date)
 
     days_1, days_2 = get_days_amount_1(
         receipt_date,
